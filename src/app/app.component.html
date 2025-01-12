@@ -1,0 +1,31 @@
+<div class="page-container">
+  <div class="corner-icon top-left" style="color: black;">♠</div>
+  <div class="corner-icon top-right" style="color: red;">♥</div>
+  <div class="corner-icon bottom-left" style="color: red;">♦</div>
+  <div class="corner-icon bottom-right" style="color: black;">♣</div>
+ 
+  <mat-card class="main-card" appearance="outlined" style="position: relative;">
+    <div class="card-row">
+      <mat-card class="square-card" appearance="outlined" *ngFor="let card of cards">
+        <div class="corner-icon top-left" [ngStyle]="{ 'color': getCategoryColor(card.color) }">{{ categorySymbols[card.color] }}</div>
+
+        <div class="card-number" [ngStyle]="{ 'color': getCategoryColor(card.color), 'font-size': getFontSize(card.value) }">
+          {{ card.value }}
+        </div>
+
+        <div class="corner-icon bottom-right" [ngStyle]="{ 'color': getCategoryColor(card.color) }">{{ categorySymbols[card.color] }}</div>
+      </mat-card>
+      <div class="example-button-container" style="display: flex; justify-content: center; margin-top: 20px;" (click)="sortCards()">
+        <button mat-fab extended>
+          Sort 
+        </button>
+      </div>
+      <div class="example-button-container" style="display: flex; justify-content: center; margin-top: 20px;" (click)="shuffleCards()">
+        <button mat-fab extended>
+          Shuffle 
+        </button>
+      </div>
+    </div>
+  </mat-card>
+  
+</div>
